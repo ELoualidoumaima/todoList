@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  removeAuth(id: Int!): Auth!
+  signup(sigupInput: sigupInput!): signResponse!
+  updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+}
+
+type Query {
+  auth(id: Int!): Auth!
+}
+
+type Todolist {
+  CreatedAt: DateTime!
+  Description: String!
+  Finished: Boolean!
+  Luser: User!
+  Title: String!
+  UpdatedAt: DateTime!
+  id: Int!
+  userId: Int!
+}
+
+input UpdateAuthInput {
+  Nom: String
+  Prenom: String
+  email: String
+  id: Int!
+  password: String
+}
+
+type User {
+  Nom: String!
+  Prenom: String!
+  email: String!
+  hashReftoken: String
+  id: Int!
+  password: String!
+  todolistes: [Todolist]!
+}
+
+type signResponse {
+  accesToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+input sigupInput {
+  Nom: String!
+  Prenom: String!
+  email: String!
+  password: String!
+}
